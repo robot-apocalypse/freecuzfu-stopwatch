@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#0f0f0f">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Stopwatch">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="apple-touch-icon" href="/icons/icon-192.svg">
+  <link rel="stylesheet" href="/style.css">
+  <style>:root { --accent: #60a5fa; }</style>
+  <title>Stopwatch — FreeCuzFU</title>
+</head>
+<body>
+
+  <a href="https://freecuzfu.com" class="back-link">← FreeCuzFU</a>
+  <button id="install-btn" aria-label="Install app" hidden>↓ Install</button>
+
+  <main id="app">
+    <div id="display">00:00.00</div>
+    <div id="controls">
+      <button id="btn-start">Start</button>
+      <button id="btn-lap" disabled>Lap</button>
+      <button id="btn-reset">Reset</button>
+    </div>
+    <ol id="lap-list"></ol>
+  </main>
+
+  <script src="/app.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/sw.js').catch(() => {});
+    }
+  </script>
+</body>
+</html>
